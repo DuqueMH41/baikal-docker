@@ -44,7 +44,6 @@ services:
 
     labels:
       - "traefik.enable=true"    
-      - "traefik.docker.network=proxy"
       - "traefik.http.routers.baikal.rule=Host(`baikal.example.com`)"
       - "traefik.http.routers.baikal.entrypoints=websecure"
       - "traefik.http.routers.baikal.tls=true"    
