@@ -25,9 +25,11 @@ http://localhost:8080
 * ./config → /var/www/baikal/config
 * ./data → /var/www/baikal/Specific
 
+Select SQLite Database, others need different setup.
+
 ## Usage
 
-### Option 1 — Use prebuilt image docker compose example for UgreenNAS
+### Option 1 — Use prebuilt image docker compose example for UgreenNAS, with traefik configured.
 
 ```yaml
 services:
@@ -39,6 +41,14 @@ services:
     volumes:
       - /volume1/docker/baikal/config:/var/www/baikal/config
       - /volume1/docker/baikal/data:/var/www/baikal/Specific
+
+    labels:
+      - "traefik.enable=true"    
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.baikal.rule=Host(`baikal.example.com`)"
+      - "traefik.http.routers.baikal.entrypoints=websecure"
+      - "traefik.http.routers.baikal.tls=true"    
+      - "traefik.http.services.baikal.loadbalancer.server.port=80"
 ```
 
 ### Option 2 — Build locally
