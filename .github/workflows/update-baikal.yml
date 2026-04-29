@@ -20,18 +20,20 @@ jobs:
         id: latest
         run: |
           VERSION=$(curl -s https://api.github.com/repos/sabre-io/Baikal/releases/latest | grep tag_name | cut -d '"' -f 4)
+          echo "Latest version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Get current version
         id: current
         run: |
-          VERSION=$(grep BAIKAL_VERSION Dockerfile | cut -d '=' -f2)
+          VERSION=$(grep '^ENV BAIKAL_VERSION=' Dockerfile | cut -d '=' -f2)
+          echo "Current version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Update Dockerfile if needed
         if: steps.latest.outputs.version != steps.current.outputs.version
         run: |
-          sed -i "s/BAIKAL_VERSION=.*/BAIKAL_VERSION=${{ steps.latest.outputs.version }}/" Dockerfile
+          sed -i "s/^ENV BAIKAL_VERSION=.*/ENV BAIKAL_VERSION=${{ steps.latest.outputs.version }}/" Dockerfile
 
       - name: Commit and push update
         if: steps.latest.outputs.version != steps.current.outputs.version
