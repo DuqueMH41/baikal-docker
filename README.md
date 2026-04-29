@@ -27,12 +27,18 @@ http://localhost:8080
 
 ## Usage
 
-### Option 1 — Use prebuilt image
+### Option 1 — Use prebuilt image docker compose example for UgreenNAS
 
 ```yaml
 services:
   baikal:
     image: ghcr.io/duquemh41/baikal:latest
+    container_name: Baikal
+    restart: unless-stopped
+
+    volumes:
+      - /volume1/docker/baikal/config:/var/www/baikal/config
+      - /volume1/docker/baikal/data:/var/www/baikal/Specific
 ```
 
 ### Option 2 — Build locally
