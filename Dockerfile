@@ -15,7 +15,7 @@ RUN a2enmod rewrite
 WORKDIR /var/www
 
 # Pin version (YOU control upgrades)
-ENV BAIKAL_VERSION=0.10.0
+ENV BAIKAL_VERSION=0.11.1
 
 # Download Baikal
 RUN curl -L https://github.com/sabre-io/Baikal/releases/download/${BAIKAL_VERSION}/baikal-${BAIKAL_VERSION}.zip -o baikal.zip \
