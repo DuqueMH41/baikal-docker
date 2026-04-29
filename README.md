@@ -1,5 +1,5 @@
 # baikal-docker
-Baïkal CalDAV and CardDAV Server in Docker
+Baïkal CalDAV and CardDAV Server in Docker, will keep updating new versions, made with AI help, built from sabre.io official guide
 
 # Baikal Docker (Custom)
 
@@ -24,3 +24,22 @@ http://localhost:8080
 
 * ./config → /var/www/baikal/config
 * ./data → /var/www/baikal/Specific
+
+## Usage
+
+### Option 1 — Use prebuilt image
+
+```yaml
+services:
+  baikal:
+    image: ghcr.io/duquemh41/baikal:latest
+```
+
+### Option 2 — Build locally
+
+```bash
+git clone https://github.com/duquemh41/baikal-docker.git
+cd baikal-docker
+docker build -t baikal .
+docker compose up -d
+```
