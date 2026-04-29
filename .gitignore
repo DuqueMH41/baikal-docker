@@ -1,0 +1,15 @@
+# Baikal data (DO NOT COMMIT)
+data/
+config/
+
+# Docker / temp
+*.log
+*.tmp
+*.cache
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files
+.env

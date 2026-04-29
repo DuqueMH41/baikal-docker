@@ -1,0 +1,10 @@
+services:
+  baikal:
+    build: .
+    container_name: baikal
+    ports:
+      - "8080:80"
+    volumes:
+      - /home/duquemh41/baikal/config:/var/www/baikal/config
+      - /home/duquemh41/baikal/Specific:/var/www/baikal/Specific
+    restart: unless-stopped
