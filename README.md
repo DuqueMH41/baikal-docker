@@ -29,7 +29,7 @@ Select SQLite Database, others need different setup.
 
 ## Usage
 
-### Option 1 — Use prebuilt image docker compose example for UgreenNAS, with traefik configured.
+### Option 1 — Use prebuilt image docker compose in Github - this example if for UgreenNAS, with Traefik configured.
 
 ```yaml
 services:
