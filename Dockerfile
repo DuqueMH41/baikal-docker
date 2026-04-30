@@ -8,6 +8,8 @@ RUN apt-get update \
 
 RUN a2enmod rewrite
 
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 WORKDIR /var/www
 
 ENV BAIKAL_VERSION=0.11.1
