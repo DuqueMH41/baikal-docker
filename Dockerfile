@@ -2,7 +2,7 @@ FROM php:8.3-apache
 
 RUN apt-get update \
     && apt-get install -y unzip curl libsqlite3-dev \
-    && docker-php-ext-install pdo pdo_sqlite sqlite3 opcache \
+    && docker-php-ext-install pdo_sqlite opcache \
     && apt-get purge -y --auto-remove \
     && rm -rf /var/lib/apt/lists/*
 
